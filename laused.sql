@@ -8,10 +8,11 @@
 -- db loomine
 create database Tarpv24
 
---?
+--db kustutamine?
 DRop DataBASE Tarpv24
 
---?
+--tabeli Gender loomine
+use Tarpv24
 create table Gender
 (
 Id int NOT NULL primary key,
@@ -25,6 +26,7 @@ Name nvarchar(25),
 Email nvarchar(30),
 GenderId int
 )
+
 
 --- andmete sisestamine tabelisse
 insert into Gender (Id, Gender)
