@@ -167,7 +167,7 @@ DepartmentName nvarchar(50),
 Location nvarchar(50),
 DepartmentHead nvarchar(50)
 )
-
+--create tabeli Employees
 create table Employees
 (
 Id int primary key,
