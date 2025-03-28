@@ -58,10 +58,10 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- kustutada veerg tblPerson_GenderId_FK(Person)
 alter table Person
 drop constraint tblPerson_GenderId_FK
-
+  
 -- sisestada andmed tabelisse Gen
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
