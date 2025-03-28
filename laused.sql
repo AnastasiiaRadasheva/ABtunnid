@@ -28,7 +28,7 @@ GenderId int
 )
 
 
---- andmete sisestamine tabelisse
+--- andmete sisestamine tabelisse Gender
 insert into Gender (Id, Gender)
 values (1, 'Female')
 insert into Gender (Id, Gender)
@@ -179,7 +179,7 @@ Salary nvarchar(50),
 DepartmentId int
 )
 
---?
+-- andmete sisestamine tabelisse Department
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
 values (1, 'IT', 'London', 'Rick')
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
