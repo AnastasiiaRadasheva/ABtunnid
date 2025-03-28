@@ -74,9 +74,10 @@ default 3 for GenderId
 select * from Person
 select * from Gender
 
-insert into Person (Id, Name, Email)
-values (8, 'Test', 'Test')
-
+-- sisestada andmed tabelisse
+insert into Gender (Id, Gender)
+values (3, 'Unknown')
+  
 ---?
 alter table Person
 add Age nvarchar(10)
