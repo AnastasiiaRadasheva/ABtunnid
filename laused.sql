@@ -1,4 +1,4 @@
---1. Käivita iga lause SQL Serveris
+ˇˇ--1. Käivita iga lause SQL Serveris
 --2. Kommenteeri neid antud failis
 --3. Tee uus branch iga SQL lausete teemade kohta
 --3a. Tee Git commit iga SQL lause kohta.
@@ -62,7 +62,7 @@ select * from Person
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- sisestada andmed tabelisse Gen
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
