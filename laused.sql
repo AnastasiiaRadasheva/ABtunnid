@@ -78,7 +78,7 @@ select * from Gender
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
   
----?
+--- Lisa veeru "Age" tabelisse.
 alter table Person
 add Age nvarchar(10)
 
