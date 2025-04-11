@@ -222,11 +222,11 @@ select sum(cast(Salary as int)) from Employees
 ---?
 select min(cast(Salary as int)) from Employees
 
-
+-- Lisa veerud "City" 
 alter table Employees
 add City nvarchar(25)
 
-
+-- Lisa veerud "DepartmentId
 alter table Employees
 add DepartmentId
 int null
