@@ -232,10 +232,10 @@ add DepartmentId
 int null
 
 
---?
+-- Lisa veerud "MiddleName" 
 alter table Employees
 add MiddleName nvarchar(30)
-
+-- Lisa veerud "LastName".
 alter table Employees
 add LastName nvarchar(30)
 
