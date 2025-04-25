@@ -130,13 +130,13 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--- Kommenteeri: Vaatame kirjed tabelist Person, kus Name ei alga tähtedega 'W', 'A' ega 'S'
 select * from Person where Name like '[^WAS]%'
----  Vaatame kolm esimest rida tabelist Person
+--- Kommenteeri: Vaatame kirjed tabelist Person, kus City on 'Gotham' või 'New York' ja Age on suurem või võrdne 40
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
----võtab kolm esimest rida
+---Vaatame kolm esimest rida tabelist Person
 select top 3 * from Person
 
 ---  Vaatame kolm esimest rida tabelist Person, valides ainult Age ja Name väljad
