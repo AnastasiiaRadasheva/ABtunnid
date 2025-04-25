@@ -105,7 +105,7 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- Vaatame kõik kirjed tabelis Person, kus City väli on 'Gotham'
 select * from Person where City = 'Gotham'
 
 
