@@ -143,7 +143,7 @@ select top 3 * from Person
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+-- Kommenteeri: Vaatame 50% ridadest tabelist Person
 select top 50 percent * from Person
 -- Kommenteeri: Vaatame kõik kirjed tabelist Person, sorteerides Age järgi
 select * from Person order by cast(Age as int)
