@@ -25,7 +25,7 @@ new files
 
 
 .
---näitab kõik ridu, või veerunimi on samad
+--#näitab kõik ridu, või veerunimi on samad
 ![pilt](https://github.com/user-attachments/assets/21288a3f-40e7-4303-a317-7d7fc888f728)
 
 
