@@ -1,64 +1,98 @@
---loome kaks tabelit
+-- Loome andmebaasi nimega "indexLoomine"
+create database indexLoomine;
+
+-- Kasutame loodud andmebaasi
+use indexLoomine;
+
+-- Loome tabelid IndianCustomers ja UKCustomers
 create table IndianCustomers
 (
-Id int identity(1,1),
-Name nvarchar(25),
-Email nvarchar(25)
-)
+    Id int identity(1,1), -- ID auto-kasvav väärtus
+    Name nvarchar(25), -- Klientide nimi
+    Email nvarchar(25) -- Klientide e-posti aadress
+);
 
 create table UKCustomers
 (
-Id int identity(1,1),
-Name nvarchar(25),
-Email nvarchar(25)
-)
+    Id int identity(1,1),
+    Name nvarchar(25),
+    Email nvarchar(25)
+);
 
---sisestame tabelisse andmeid
+-- Sisestame andmed tabelitesse
 insert into IndianCustomers (Name, Email)
 values ('Raj', 'R@R.com'),
-('Sam', 'S@S.com')
+       ('Sam', 'S@S.com');
 
 insert into UKCustomers (Name, Email)
 values ('Ben', 'B@B.com'),
-('Sam', 'S@S.com')
+       ('Sam', 'S@S.com');
 
-select * from IndianCustomers
-select * from UKCustomers
+-- Kuvame kõik read mõlemas tabelis
+select * from IndianCustomers;
+select * from UKCustomers;
 
--- kasutame union all, näitab kõiki ridu
+-- Kasutame "union all", et kuvada kõik read (ka korduvad)
 select Id, Name, Email from IndianCustomers
 union all
-select Id, Name, Email from UKCustomers
+select Id, Name, Email from UKCustomers;
 
--- korduvate väärtustega read pannakse ühte ja ei korrata
+-- Kasutame "union", et kuvada ainult unikaalsed read (korduvad eemaldatakse)
 select Id, Name, Email from IndianCustomers
 union
-select Id, Name, Email from UKCustomers
+select Id, Name, Email from UKCustomers;
 
---- kuidas tulemust sorteerida nime järgi ja kasutada union all-i
+-- Soovime tulemusi sorteerida nime järgi, kasutades "union all"
 select Id, Name, Email from IndianCustomers
 union all
 select Id, Name, Email from UKCustomers
-order by Name
+order by Name;
 
---- stored procedure
-create procedure spGetEmployees
+-- Loome salvestatud protseduuri "spGetCustomers", et kuvada ainult UKCustomers tabeli andmeid
+create procedure spGetCustomers
 as begin
-	select FirstName, Gender from Employees
-end
-
--- nüüd saab kasutada selle nimelist sp-d
-spGetEmployees
-exec spGetEmployees
-execute spGetEmployees
+    select Name, Email from UKCustomers;
+end;
 
 select * from Employees
+--loome tabile employees
+create table Employees
+(
+Id int primary key,
+Name nvarchar(50),
+Gender nvarchar(10),
+Salary nvarchar(50),
+DepartmentId int
+)
 
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (1, 'Tom', 'Male', 4000, 1)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (2, 'Pam', 'Female', 3000, 1)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (3, 'John', 'Male', 3500, 1)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (4, 'Sam', 'Male', 4500, 2)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (5, 'Todd', 'Male', 2800, 1)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (6, 'Ben', 'Male', 7000, 1)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (7, 'Sara', 'Female', 4800, 3)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (8, 'Valarie', 'Female', 5500, 1)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (9, 'James', 'Male', 6500, NULL)
+insert into Employees (Id, Name, Gender, Salary, DepartmentId)
+values (10, 'Russell', 'Male', 8800, NULL)
+
+
+--näitab tabelissisu, kui kasutaja sisestab gender(sugu)
 create proc spGetEmployeesByGenderAndDepartment
 @Gender nvarchar(20),
 @DepartmentId int
 as begin
-	select FirstName, Gender, DepartmentId from Employees where Gender = @Gender
+	select Name, Gender, DepartmentId from Employees where Gender = @Gender
 	and DepartmentId = @DepartmentId
 end
 
@@ -86,7 +120,7 @@ as begin
 end
 
 sp_helptext spGetEmployeesByGenderAndDepartment
-
+--
 -- sp tegemine
 create proc spGetEmployeeCountByGender
 @Gender nvarchar(20),
@@ -94,6 +128,18 @@ create proc spGetEmployeeCountByGender
 as begin
 	select @EmployeeCount = count(Id) from Employees where Gender = @Gender
 end
+exec spGetEmployeeCountByGender 'Male'
+-- annab tulemuse, kus loendab ära nõuetele vastavad read
+-- prindib tulemuse konsooli
+
+declare @TotalCount int
+execute spGetEmployeeCountByGender 'Female', @TotalCount out
+if(@TotalCount = 0)
+	print 'TotalCount is null'
+else
+	print '@Total is not null'
+print @TotalCount
+
 
 -- annab tulemuse, kus loendab ära nõuetele vastavad read
 -- prindib tulemuse konsooli
