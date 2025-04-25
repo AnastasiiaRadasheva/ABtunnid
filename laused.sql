@@ -152,7 +152,7 @@ select * from Person order by Age
 --?
 select sum(cast(Age as int)) from Person
 
---?
+--  Vaatame kõik unikaalsed kombinatsioonid Name ja DepartmentId väärtustest tabelis Employees
 select min(cast(Age as int)) from Person
 
 -- Kommenteeri: Summeerime kõik töötajate palgad tabelist Employees
