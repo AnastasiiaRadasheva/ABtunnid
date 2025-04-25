@@ -215,7 +215,7 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
----?
+---Vaatame kõik unikaalsed kombinatsioonid Name ja DepartmentId väärtustest tabelis Employees
 select distinct Name, DepartmentId from Employees
 
 ---?
