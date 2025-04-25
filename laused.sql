@@ -155,7 +155,7 @@ select sum(cast(Age as int)) from Person
 --?
 select min(cast(Age as int)) from Person
 
---?
+-- Kommenteeri: Summeerime kõik töötajate palgad tabelist Employees
 select max(cast(Age as int)) from Person
 -- Kommenteeri: Leiame väikseima palga töötajate seas tabelis Employees
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
