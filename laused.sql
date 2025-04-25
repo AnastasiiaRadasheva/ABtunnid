@@ -218,9 +218,9 @@ select * from Employees
 ---Vaatame kõik unikaalsed kombinatsioonid Name ja DepartmentId väärtustest tabelis Employees
 select distinct Name, DepartmentId from Employees
 
----?
+--- Summeerime kõik palgad (Salary) töötajatelt tabelis Employees
 select sum(cast(Salary as int)) from Employees
----?
+---Leiame väikseima palga (Salary) töötajatelt tabelis Employees
 select min(cast(Salary as int)) from Employees
 
 -- Lisa veerud "City" 
