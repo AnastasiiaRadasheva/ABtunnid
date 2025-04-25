@@ -150,7 +150,7 @@ select top 50 percent * from Person
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--Summeerime kõik vanuse (Age) väärtused tabelis Person
 select sum(cast(Age as int)) from Person
 
 --  Vaatame kõik unikaalsed kombinatsioonid Name ja DepartmentId väärtustest tabelis Employees
