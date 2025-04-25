@@ -139,7 +139,7 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+---  Vaatame kolm esimest rida tabelist Person, valides ainult Age ja Name väljad
 select * from Person
 select top 3 Age, Name from Person
 
